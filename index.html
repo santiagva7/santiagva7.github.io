@@ -34,7 +34,6 @@
       overflow-x: hidden;
     }
 
-    /* ── NOISE OVERLAY ── */
     body::before {
       content: '';
       position: fixed;
@@ -44,8 +43,6 @@
       pointer-events: none;
       z-index: 9999;
     }
-
-    /* ── NAV ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -85,10 +82,7 @@
     }
     .nav-links a:hover { color: var(--text); }
 
-    /* ── SECTIONS ── */
     section { padding: 120px 48px; max-width: 1100px; margin: 0 auto; }
-
-    /* ── HERO ── */
     #hero {
       min-height: 100vh;
       display: flex;
@@ -173,8 +167,6 @@
       border: 1px solid var(--border2);
     }
     .btn-ghost:hover { border-color: var(--muted); color: var(--text); }
-
-    /* hero grid lines decoration */
     .hero-grid {
       position: absolute;
       right: 0; top: 0; bottom: 0;
@@ -187,7 +179,6 @@
       pointer-events: none;
     }
 
-    /* ── SECTION HEADERS ── */
     .section-header {
       display: flex;
       align-items: center;
@@ -213,7 +204,6 @@
       background: var(--border);
     }
 
-    /* ── ABOUT ── */
     #about { border-top: 1px solid var(--border); }
     .about-grid {
       display: grid;
@@ -257,7 +247,6 @@
     }
     .tag:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* ── PROJECTS ── */
     #projects { border-top: 1px solid var(--border); }
     .projects-grid {
       display: grid;
@@ -361,7 +350,6 @@
       50% { opacity: 0.3; }
     }
 
-    /* ── CONTACT ── */
     #contact { border-top: 1px solid var(--border); }
     .contact-inner {
       display: grid;
@@ -429,8 +417,6 @@
       font-size: 14px;
       color: var(--text);
     }
-
-    /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
       padding: 32px 48px;
@@ -447,7 +433,6 @@
     }
     .footer-text span { color: var(--accent); }
 
-    /* ── ANIMATIONS ── */
     .fade-up {
       opacity: 0;
       transform: translateY(24px);
@@ -458,7 +443,6 @@
       transform: translateY(0);
     }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 16px 24px; }
       .nav-links { display: none; }
@@ -473,7 +457,6 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav id="navbar">
     <a href="#hero" class="nav-logo">sv.dev</a>
     <ul class="nav-links">
@@ -483,11 +466,10 @@
     </ul>
   </nav>
 
-  <!-- HERO -->
   <div id="hero">
     <div class="hero-grid"></div>
     <div class="hero-inner">
-      <div class="hero-tag">Disponible para prácticas profesionales</div>
+      <div class="hero-tag">Disponible para pasantías rentadas</div>
       <h1>
         Santiago<br>
         <span class="dim">Villar</span><span class="highlight">.</span>
@@ -504,7 +486,6 @@
     </div>
   </div>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="section-header fade-up">
       <span class="section-num">01</span>
@@ -555,13 +536,13 @@
           <div class="tags">
             <span class="tag">Español — Nativo</span>
             <span class="tag">Inglés — B2</span>
+            <span class="tag">Portugués — A2</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
   <section id="projects">
     <div class="section-header fade-up">
       <span class="section-num">02</span>
@@ -570,7 +551,6 @@
     </div>
     <div class="projects-grid">
 
-      <!-- MyRoommate -->
       <div class="project-card fade-up">
         <span class="project-num">001</span>
         <div class="project-title">MyRoommate</div>
@@ -588,7 +568,6 @@
         </div>
       </div>
 
-      <!-- Focus Extension -->
       <div class="project-card fade-up">
         <span class="project-num">002</span>
         <div>
@@ -620,7 +599,6 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact">
     <div class="section-header fade-up">
       <span class="section-num">03</span>
@@ -631,15 +609,15 @@
       <div class="contact-text fade-up">
         <h3>¿Hablamos?</h3>
         <p>
-          Estoy buscando mis primeras prácticas profesionales. Si tenés una oportunidad o simplemente querés charlar de tecnología, escribime.
+          Estoy buscando una pasantía rentada, con posibilidad de homologación como práctica profesional universitaria. Si tenés una oportunidad o simplemente querés charlar de tecnología, escribime.
         </p>
       </div>
       <div class="contact-links fade-up">
-        <a href="mailto:santyvillar123@gmail.com" class="contact-item">
+        <a href="/cdn-cgi/l/email-protection#cf9b9a908a828e86838fa8a2aea6a3e1aca0a2" class="contact-item">
           <span class="contact-icon">✉</span>
           <div class="contact-info">
             <div class="contact-label">Email</div>
-            <div class="contact-value">santyvillar123@gmail.com</div>
+            <div class="contact-value"><span class="__cf_email__" data-cfemail="b0e4e5eff5fdf1f9fcf0d7ddd1d9dc9ed3dfdd">[email&#160;protected]</span></div>
           </div>
         </a>
         <a href="https://linkedin.com/in/santiagovillar-araya" target="_blank" class="contact-item">
@@ -649,11 +627,11 @@
             <div class="contact-value">santiagovillar-araya</div>
           </div>
         </a>
-        <a href="https://github.com/santiagva7" target="_blank" class="contact-item">
+        <a href="https://github.com/TU_USUARIO" target="_blank" class="contact-item">
           <span class="contact-icon">⌥</span>
           <div class="contact-info">
             <div class="contact-label">GitHub</div>
-            <div class="contact-value">github.com/santiagva7</div>
+            <div class="contact-value">github.com/TU_USUARIO</div>
           </div>
         </a>
         <a href="tel:+542948450880" class="contact-item">
@@ -667,20 +645,18 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <p class="footer-text">© 2025 <span>Santiago Villar</span></p>
     <p class="footer-text">Hecho con HTML · CSS · JS — sin frameworks</p>
   </footer>
 
-  <script>
-    // Sticky nav
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 40);
     });
 
-    // Fade-up on scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
@@ -691,17 +667,7 @@
 
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-    // Hero fade-up on load
     document.querySelectorAll('#hero .fade-up, #hero .hero-tag, #hero h1, #hero .hero-desc, #hero .hero-cta')
       .forEach((el, i) => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
-        setTimeout(() => {
-          el.style.opacity = '1';
-          el.style.transform = 'translateY(0)';
-        }, 200 + i * 120);
-      });
-  </script>
-</body>
-</html>
