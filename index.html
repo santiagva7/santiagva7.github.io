@@ -67,6 +67,11 @@
       letter-spacing: 0.05em;
       text-decoration: none;
     }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
     .nav-links {
       display: flex;
       gap: 32px;
@@ -82,6 +87,23 @@
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--text); }
+    .lang-toggle {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      background: transparent;
+      border: 1px solid var(--border2);
+      border-radius: 2px;
+      padding: 8px 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .lang-toggle:hover {
+      color: var(--text);
+      border-color: var(--muted);
+    }
 
     section { padding: 120px 48px; max-width: 1100px; margin: 0 auto; }
     #hero {
@@ -434,8 +456,6 @@
     }
     .footer-text span { color: var(--accent); }
 
-    /* ── Animaciones ── */
-    /* Por defecto visibles — JS agrega .js-ready para activar animaciones */
     .fade-up {
       opacity: 1;
       transform: none;
@@ -453,6 +473,7 @@
     @media (max-width: 768px) {
       nav { padding: 16px 24px; }
       .nav-links { display: none; }
+      .lang-toggle { padding: 7px 10px; font-size: 10px; }
       section { padding: 80px 24px; }
       .hero-inner { padding: 0 24px; }
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -466,29 +487,32 @@
 
   <nav id="navbar">
     <a href="#hero" class="nav-logo">sv.dev</a>
-    <ul class="nav-links">
-      <li><a href="#about">Sobre mí</a></li>
-      <li><a href="#projects">Proyectos</a></li>
-      <li><a href="#contact">Contacto</a></li>
-    </ul>
+    <div class="nav-actions">
+      <ul class="nav-links">
+        <li><a href="#about" data-i18n="navAbout">Sobre mí</a></li>
+        <li><a href="#projects" data-i18n="navProjects">Proyectos</a></li>
+        <li><a href="#contact" data-i18n="navContact">Contacto</a></li>
+      </ul>
+      <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Switch language">EN</button>
+    </div>
   </nav>
 
   <div id="hero">
     <div class="hero-grid"></div>
     <div class="hero-inner">
-      <div class="hero-tag">Disponible para pasantías rentadas</div>
+      <div class="hero-tag" data-i18n="heroTag">Disponible para pasantías rentadas</div>
       <h1>
         Santiago<br>
         <span class="dim">Villar</span><span class="highlight">.</span>
       </h1>
-      <p class="hero-desc">
+      <p class="hero-desc" data-i18n-html="heroDesc">
         Analista en Sistemas · Estudiante de Ingeniería.<br>
         Desarrollo de software, redes y arquitectura de aplicaciones.<br>
         Chos Malal, Neuquén — Argentina.
       </p>
       <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary">Ver proyectos →</a>
-        <a href="#contact" class="btn btn-ghost">Contacto</a>
+        <a href="#projects" class="btn btn-primary" data-i18n="heroBtnProjects">Ver proyectos →</a>
+        <a href="#contact" class="btn btn-ghost" data-i18n="heroBtnContact">Contacto</a>
       </div>
     </div>
   </div>
@@ -496,34 +520,40 @@
   <section id="about">
     <div class="section-header fade-up">
       <span class="section-num">01</span>
-      <h2>Sobre mí</h2>
+      <h2 data-i18n="aboutTitle">Sobre mí</h2>
       <div class="section-line"></div>
     </div>
     <div class="about-grid">
       <div class="about-text fade-up">
-        <p>
+        <p data-i18n-html="aboutP1">
           Soy <strong>Analista en Sistemas</strong> egresado en 2025 y estudiante avanzado de Ingeniería en Sistemas de Información en la Universidad Adventista del Plata.
         </p>
-        <p>
+        <p data-i18n-html="aboutP2">
           Me interesa el desarrollo de software con foco en <strong>arquitectura de aplicaciones</strong> y la administración de redes y sistemas. Busco mis primeras prácticas profesionales para aplicar lo aprendido en un entorno real.
         </p>
-        <p>
+        <p data-i18n="aboutP3">
           Fuera del código, tuve experiencia liderando equipos de voluntariado, coordinando a más de 15 personas en distintas localidades — algo que me enseñó más sobre gestión de personas que cualquier materia.
         </p>
       </div>
       <div class="about-stack fade-up">
         <div class="stack-group">
-          <h4>Desarrollo</h4>
+          <h4 data-i18n="stackDev">Desarrollo</h4>
           <div class="tags">
             <span class="tag">JavaScript</span>
-            <span class="tag">React</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">React.js</span>
+            <span class="tag">Next.js 13+</span>
+            <span class="tag">React Native CLI</span>
+            <span class="tag">Tailwind CSS</span>
             <span class="tag">Firebase</span>
             <span class="tag">SQL</span>
-            <span class="tag">Git / GitHub</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">Git / GitHub / GitLab</span>
+            <span class="tag">Docker</span>
           </div>
         </div>
         <div class="stack-group">
-          <h4>Redes y SO</h4>
+          <h4 data-i18n="stackNetworks">Redes y SO</h4>
           <div class="tags">
             <span class="tag">TCP/IP · Subnetting</span>
             <span class="tag">Linux (Ubuntu/Debian)</span>
@@ -531,18 +561,18 @@
           </div>
         </div>
         <div class="stack-group">
-          <h4>Ingeniería de software</h4>
+          <h4 data-i18n="stackSE">Ingeniería de software</h4>
           <div class="tags">
-            <span class="tag">Análisis de requerimientos</span>
-            <span class="tag">Diseño de sistemas</span>
+            <span class="tag" data-i18n="tagReqs">Análisis de requerimientos</span>
+            <span class="tag" data-i18n="tagDesign">Diseño de sistemas</span>
             <span class="tag">Modelado UML</span>
           </div>
         </div>
         <div class="stack-group">
-          <h4>Idiomas</h4>
+          <h4 data-i18n="stackLangs">Idiomas</h4>
           <div class="tags">
-            <span class="tag">Español — Nativo</span>
-            <span class="tag">Inglés — B2</span>
+            <span class="tag" data-i18n="tagSpanish">Español — Nativo</span>
+            <span class="tag" data-i18n="tagEnglish">Inglés — B2</span>
           </div>
         </div>
       </div>
@@ -552,7 +582,7 @@
   <section id="projects">
     <div class="section-header fade-up">
       <span class="section-num">02</span>
-      <h2>Proyectos</h2>
+      <h2 data-i18n="projectsTitle">Proyectos</h2>
       <div class="section-line"></div>
     </div>
     <div class="projects-grid">
@@ -560,26 +590,28 @@
       <div class="project-card fade-up">
         <span class="project-num">001</span>
         <div class="project-title">MyRoommate</div>
-        <p class="project-desc">
-          Aplicación web para facilitar la búsqueda de compañeros de habitación. Desarrollada en dupla como trabajo final de tercer año, cubriendo el ciclo completo: requerimientos, arquitectura, diseño e implementación.
+        <p class="project-desc" data-i18n="p1Desc">
+          Aplicación web full stack para encontrar compañeros de habitación con sistema de likes, matches y chat en tiempo real. Desarrollada en dupla cubriendo el ciclo completo: requerimientos, arquitectura, diseño e implementación.
         </p>
         <div class="project-tech">
-          <span class="tech-pill">React</span>
-          <span class="tech-pill">Firebase</span>
-          <span class="tech-pill">Firestore</span>
+          <span class="tech-pill">Next.js 13</span>
+          <span class="tech-pill">React 18</span>
+          <span class="tech-pill">TypeScript</span>
+          <span class="tech-pill">Tailwind CSS</span>
+          <span class="tech-pill">Firebase Auth</span>
+          <span class="tech-pill">Realtime DB</span>
+          <span class="tech-pill">Firebase Storage</span>
           <span class="tech-pill">Git</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/santiagva7/MyRoommate2" class="project-link">↗ Ver repositorio</a>
+          <a href="https://github.com/santiagva7/MyRoommate2" class="project-link" data-i18n="projectRepo">↗ Ver repositorio</a>
         </div>
       </div>
 
       <div class="project-card fade-up">
         <span class="project-num">002</span>
-        <div>
-          <div class="project-title">Focus Extension</div>
-        </div>
-        <p class="project-desc">
+        <div class="project-title">Focus Extension</div>
+        <p class="project-desc" data-i18n="p2Desc">
           Extensión de Chrome para bloquear sitios distractores mientras estudiás. Incluye overlay de confirmación, timer Pomodoro (25/5) y configuración persistente con chrome.storage.
         </p>
         <div class="project-tech">
@@ -588,29 +620,27 @@
           <span class="tech-pill">HTML/CSS</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/santiagva7/focus-extension" class="project-link">↗ Ver repositorio</a>
+          <a href="https://github.com/santiagva7/focus-extension" class="project-link" data-i18n="projectRepo">↗ Ver repositorio</a>
         </div>
       </div>
 
       <div class="project-card fade-up">
-  <span class="project-num">003</span>
-  <div class="project-title">FinanzIA</div>
-  <p class="project-desc">
-    App web de finanzas personales potenciada con IA. Registrá ingresos y gastos,
-    visualizá tu evolución mensual con gráficos y recibí sugerencias personalizadas
-    generadas por inteligencia artificial.
-  </p>
-  <div class="project-tech">
-    <span class="tech-pill">React</span>
-    <span class="tech-pill">Supabase</span>
-    <span class="tech-pill">Recharts</span>
-    <span class="tech-pill">Claude API</span>
-  </div>
-    <div class="project-wip">En construcción</div>
-  <div class="project-links">
-    <a href="https://github.com/santiagva7" class="project-link">↗ Ver repositorio</a>
-  </div>
-</div>
+        <span class="project-num">003</span>
+        <div class="project-title">FinanzIA</div>
+        <p class="project-desc" data-i18n="p3Desc">
+          App web de finanzas personales potenciada con IA. Registrá ingresos y gastos, visualizá tu evolución mensual con gráficos y recibí sugerencias personalizadas generadas por inteligencia artificial.
+        </p>
+        <div class="project-tech">
+          <span class="tech-pill">React</span>
+          <span class="tech-pill">Supabase</span>
+          <span class="tech-pill">Recharts</span>
+          <span class="tech-pill">Claude API</span>
+        </div>
+        <div class="project-wip" data-i18n="projectWip">En construcción</div>
+        <div class="project-links">
+          <a href="https://github.com/santiagva7" class="project-link" data-i18n="projectRepo">↗ Ver repositorio</a>
+        </div>
+      </div>
 
     </div>
   </section>
@@ -618,13 +648,13 @@
   <section id="contact">
     <div class="section-header fade-up">
       <span class="section-num">03</span>
-      <h2>Contacto</h2>
+      <h2 data-i18n="contactTitle">Contacto</h2>
       <div class="section-line"></div>
     </div>
     <div class="contact-inner">
       <div class="contact-text fade-up">
-        <h3>¿Hablamos?</h3>
-        <p>
+        <h3 data-i18n="contactHeading">¿Hablamos?</h3>
+        <p data-i18n="contactText">
           Estoy buscando una pasantía rentada, con posibilidad de homologación como práctica profesional universitaria. Si tenés una oportunidad o simplemente querés charlar de tecnología, escribime.
         </p>
       </div>
@@ -633,7 +663,7 @@
           <span class="contact-icon">✉</span>
           <div class="contact-info">
             <div class="contact-label">Email</div>
-            <div class="contact-value"><span class="__cf_email__" data-cfemail="e99d9ca98c84888085c78a8684">[email&#160;protected]</span></div>
+            <div class="contact-value">santyvillar123@gmail.com</div>
           </div>
         </a>
         <a href="https://linkedin.com/in/santiago-villar-araya" target="_blank" class="contact-item">
@@ -653,7 +683,7 @@
         <a href="tel:+542948450880" class="contact-item">
           <span class="contact-icon">☏</span>
           <div class="contact-info">
-            <div class="contact-label">Teléfono</div>
+            <div class="contact-label" data-i18n="phoneLabel">Teléfono</div>
             <div class="contact-value">+54 2948 450880</div>
           </div>
         </a>
@@ -663,16 +693,107 @@
 
   <footer>
     <p class="footer-text">© 2025 <span>Santiago Villar</span></p>
-    <p class="footer-text">Hecho con HTML · CSS · JS — sin frameworks</p>
+    <p class="footer-text" data-i18n="footerBuilt">Hecho con HTML · CSS · JS — sin frameworks</p>
   </footer>
-<script>
+
+  <script>
+    const i18n = {
+      es: {
+        navAbout: 'Sobre mí',
+        navProjects: 'Proyectos',
+        navContact: 'Contacto',
+        heroTag: 'Disponible para pasantías rentadas',
+        heroDesc: 'Analista en Sistemas · Estudiante de Ingeniería.<br>Desarrollo de software, redes y arquitectura de aplicaciones.<br>Chos Malal, Neuquén — Argentina.',
+        heroBtnProjects: 'Ver proyectos →',
+        heroBtnContact: 'Contacto',
+        aboutTitle: 'Sobre mí',
+        aboutP1: 'Soy <strong>Analista en Sistemas</strong> egresado en 2025 y estudiante avanzado de Ingeniería en Sistemas de Información en la Universidad Adventista del Plata.',
+        aboutP2: 'Me interesa el desarrollo de software con foco en <strong>arquitectura de aplicaciones</strong> y la administración de redes y sistemas. Busco mis primeras prácticas profesionales para aplicar lo aprendido en un entorno real.',
+        aboutP3: 'Fuera del código, tuve experiencia liderando equipos de voluntariado, coordinando a más de 15 personas en distintas localidades — algo que me enseñó más sobre gestión de personas que cualquier materia.',
+        stackDev: 'Desarrollo',
+        stackNetworks: 'Redes y SO',
+        stackSE: 'Ingeniería de software',
+        stackLangs: 'Idiomas',
+        tagReqs: 'Análisis de requerimientos',
+        tagDesign: 'Diseño de sistemas',
+        tagSpanish: 'Español — Nativo',
+        tagEnglish: 'Inglés — B2',
+        projectsTitle: 'Proyectos',
+        p1Desc: 'Aplicación web full stack para encontrar compañeros de habitación con sistema de likes, matches y chat en tiempo real. Desarrollada en dupla cubriendo el ciclo completo: requerimientos, arquitectura, diseño e implementación.',
+        p2Desc: 'Extensión de Chrome para bloquear sitios distractores mientras estudiás. Incluye overlay de confirmación, timer Pomodoro (25/5) y configuración persistente con chrome.storage.',
+        p3Desc: 'App web de finanzas personales potenciada con IA. Registrá ingresos y gastos, visualizá tu evolución mensual con gráficos y recibí sugerencias personalizadas generadas por inteligencia artificial.',
+        projectRepo: '↗ Ver repositorio',
+        projectWip: 'En construcción',
+        contactTitle: 'Contacto',
+        contactHeading: '¿Hablamos?',
+        contactText: 'Estoy buscando una pasantía rentada, con posibilidad de homologación como práctica profesional universitaria. Si tenés una oportunidad o simplemente querés charlar de tecnología, escribime.',
+        phoneLabel: 'Teléfono',
+        footerBuilt: 'Hecho con HTML · CSS · JS — sin frameworks'
+      },
+      en: {
+        navAbout: 'About me',
+        navProjects: 'Projects',
+        navContact: 'Contact',
+        heroTag: 'Available for paid internships',
+        heroDesc: 'Systems Analyst · Information Systems Engineering Student.<br>Software development, networking, and application architecture.<br>Chos Malal, Neuquén — Argentina.',
+        heroBtnProjects: 'View projects →',
+        heroBtnContact: 'Contact',
+        aboutTitle: 'About me',
+        aboutP1: 'I am a <strong>Systems Analyst</strong> (2025) and an advanced Information Systems Engineering student at Universidad Adventista del Plata.',
+        aboutP2: 'My main interests are software development with a focus on <strong>application architecture</strong>, plus network and systems administration. I am currently looking for my first professional internship to apply what I have learned in a real environment.',
+        aboutP3: 'Beyond coding, I have led volunteer teams, coordinating more than 15 people across different locations — an experience that taught me more about people management than any class.',
+        stackDev: 'Development',
+        stackNetworks: 'Networking & OS',
+        stackSE: 'Software engineering',
+        stackLangs: 'Languages',
+        tagReqs: 'Requirements analysis',
+        tagDesign: 'Systems design',
+        tagSpanish: 'Spanish — Native',
+        tagEnglish: 'English — B2',
+        projectsTitle: 'Projects',
+        p1Desc: 'Full stack web app for finding roommates with a likes, matches, and real-time chat system. Built as a two-person project covering the full software engineering lifecycle: requirements, architecture, design, and implementation.',
+        p2Desc: 'Chrome extension that blocks distracting websites during study sessions. Features a confirmation overlay, a 25/5 Pomodoro timer, and persistent settings via chrome.storage.',
+        p3Desc: 'AI-powered personal finance web app. Log income and expenses, track monthly progress with charts, and receive personalized recommendations generated by artificial intelligence.',
+        projectRepo: '↗ View repository',
+        projectWip: 'Work in progress',
+        contactTitle: 'Contact',
+        contactHeading: "Let's connect",
+        contactText: 'I am looking for a paid internship, ideally one that can be validated as university professional practice. If you have an opportunity or just want to talk tech, feel free to reach out.',
+        phoneLabel: 'Phone',
+        footerBuilt: 'Built with HTML · CSS · JS — no frameworks'
+      }
+    };
+
+    function applyLanguage(lang) {
+      const dict = i18n[lang] || i18n.es;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] !== undefined) el.textContent = dict[key];
+      });
+
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (dict[key] !== undefined) el.innerHTML = dict[key];
+      });
+
+      document.documentElement.lang = lang;
+      document.getElementById('lang-toggle').textContent = lang === 'es' ? 'EN' : 'ES';
+      localStorage.setItem('site-lang', lang);
+    }
+
+    document.getElementById('lang-toggle').addEventListener('click', () => {
+      const current = document.documentElement.lang === 'en' ? 'en' : 'es';
+      applyLanguage(current === 'es' ? 'en' : 'es');
+    });
+
     // Navbar scroll
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 40);
     });
 
-    // Activar animaciones solo si el observer está disponible
+    // Animations
     document.body.classList.add('js-ready');
 
     const observer = new IntersectionObserver((entries) => {
@@ -686,11 +807,23 @@
 
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-    // Animación de entrada del hero
+    // Hero entrance animation
     const heroEls = document.querySelectorAll(
       '#hero .hero-tag, #hero h1, #hero .hero-desc, #hero .hero-cta'
     );
     heroEls.forEach((el, i) => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(20px)';
-     
+      setTimeout(() => {
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      }, 120 + i * 120);
+    });
+
+    // Init language
+    const savedLang = localStorage.getItem('site-lang');
+    applyLanguage(savedLang === 'en' ? 'en' : 'es');
+  </script>
+</body>
+</html>
